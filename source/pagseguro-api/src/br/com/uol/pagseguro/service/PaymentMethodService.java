@@ -32,7 +32,7 @@ import br.com.uol.pagseguro.utils.HttpConnection;
 import br.com.uol.pagseguro.xmlparser.ErrorsParser;
 
 /**
- * 
+ *
  * Class Payment Method Service
  */
 public class PaymentMethodService {
@@ -46,15 +46,13 @@ public class PaymentMethodService {
         return connectionData.getPaymentMethodsUrl();
     }
 
-    public static PaymentMethods getPaymentMethods(Credentials credentials, //
-            String publicKey) //
+    public static PaymentMethods getPaymentMethods(Credentials credentials) //
             throws PagSeguroServiceException {
         log.info("PaymentMethodService.getPaymentMethods() - begin");
 
         ConnectionData connectionData = new ConnectionData(credentials);
 
         StringBuilder url = new StringBuilder(PaymentMethodService.buildPaymentMethodsUrl(connectionData));
-        url.append("?publicKey=" + publicKey);
 
         HttpConnection connection = new HttpConnection();
         HttpStatus httpCodeStatus = null;
